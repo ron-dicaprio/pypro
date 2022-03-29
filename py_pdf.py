@@ -7,7 +7,7 @@ def split_pdf(self):
     # 判断是否存在该文件
     if path.exists(self):
         with open(self, 'rb') as input_file:
-            # 初始化PDF实体类
+            # 初始化PDF实体
             pdf_file = PdfFileReader(input_file)
             # 获取文档页码
             pages = pdf_file.getNumPages()
@@ -36,7 +36,7 @@ def split_pdf(self):
 def comb_pdf(self):
     self = list(self)
     print('1')
-    # 初始化PDF实体类
+    # 初始化PDF实体
     pdf_combine = PdfFileMerger()
     # list循环append到pdf_combine
     for pdf in self:
