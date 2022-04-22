@@ -4,7 +4,7 @@
 step1: 拉取阿里网盘docker镜像，请主动关注镜像版本(https://hub.docker.com/r/tickstep/aliyunpan-webdav)
 sudo docker pull tickstep/aliyunpan-webdav:v0.1.1
 step2:运行docker镜像
-sudo docker run -d --name=aliyunpan-webdav --restart=always -p 23077:23077 -e TZ="Asia/Shanghai" -e ALIYUNPAN_REFRESH_TOKEN="20e*********cce4b3" -e ALIYUNPAN_AUTH_USER="admin" -e ALIYUNPAN_AUTH_PASSWORD="admin" -e ALIYUNPAN_PAN_DIR="/" tickstep/aliyunpan-webdav:v0.1.1 
+sudo docker run -d --name=aliyunpan-webdav --restart=always -p 23077:23077 -e TZ="Asia/Shanghai" -e ALIYUNPAN_REFRESH_TOKEN="20e*********cce4b3" -e ALIYUNPAN_AUTH_USER="admin" -e ALIYUNPAN_AUTH_PASSWORD="admin" -e ALIYUNPAN_PAN_DIR="/" tickstep/aliyunpan-webdav:v0.1.1
 参数含义：
 # ALIYUNPAN_REFRESH_TOKEN 自己的RefreshToken   ：20e*********cce4b3
 # ALIYUNPAN_AUTH_USER webdav登录用户名     
