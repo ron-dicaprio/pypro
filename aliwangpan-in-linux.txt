@@ -15,7 +15,7 @@ sudo docker run -d --name=aliyunpan-webdav --restart=always -p 23077:23077 -e TZ
 获取ALIYUNPAN_REFRESH_TOKEN
 JSON.parse(localStorage.getItem('token')).refresh_token
 step3 查看webdav状态
-# 查找CONTAINER ID或者NAMES
+# 查找CONTAINER ID或者NAMES（进入容器sudo docker exec -it 52014a969843 /bin/sh）
 sudo docker ps -a
 # 根据查找到的CONTAINER ID查看webdev信息
 sudo docker logs 52014a969843
