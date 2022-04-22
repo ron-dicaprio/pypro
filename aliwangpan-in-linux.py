@@ -1,0 +1,41 @@
+关于在银河麒麟V10系统下使用docker挂载阿里云盘
+
+方法一：webdav挂载的方式使用阿里网盘
+step1: 拉取阿里网盘docker镜像，请主动关注镜像版本
+sudo docker pull tickstep/aliyunpan-webdav:v0.1.1
+step2:运行docker镜像
+sudo docker run -d --name=aliyunpan-webdav --restart=always -p 23077:23077 -e TZ="Asia/Shanghai" -e ALIYUNPAN_REFRESH_TOKEN="20e*********cce4b3" -e ALIYUNPAN_AUTH_USER="admin" -e ALIYUNPAN_AUTH_PASSWORD="admin" -e ALIYUNPAN_PAN_DIR="/" tickstep/aliyunpan-webdav:v0.1.1 
+参数含义：
+# ALIYUNPAN_REFRESH_TOKEN 自己的RefreshToken   ：20e*********cce4b3
+# ALIYUNPAN_AUTH_USER webdav登录用户名     
+# ALIYUNPAN_AUTH_PASSWORD webdav登录密码 
+# ALIYUNPAN_PAN_DIR 网盘文件夹的webdav服务根目录
+获取ALIYUNPAN_REFRESH_TOKEN
+JSON.parse(localStorage.getItem('token')).refresh_token
+step3 查看webdav状态
+# 查找CONTAINER ID或者NAMES
+sudo docker ps -a
+# 根据查找到的CONTAINER ID查看webdev信息
+sudo docker logs 52014a969843
+step4 挂载本地目录
+# 安装davfs2文件系统
+sudo apt-get install davfs2
+# 挂载本地目录
+sudo mount -t davfs http://localhost:23077/ /var/opt/aliyunpan
+step5 大功告成
+
+
+
+方法二：纯命令行使用阿里网盘
+
+选定对应的版本下载阿里网盘应用程序
+https://github.com/tickstep/aliyunpan/releases
+下载阿里网盘应用（以麒麟V10为例）
+https://github.com/tickstep/aliyunpan/releases/download/v0.1.3/aliyunpan-v0.1.3-linux-arm64.zip
+用系统自带的解压工具解压并进入目录
+./aliwangpan login（或者是、/opt/aliwangpan/aliwangpan login）
+输入RefreshToken
+然后就可以进入目录执行文件IO操作了
+
+
+一切为了中国！
