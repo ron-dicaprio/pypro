@@ -39,7 +39,7 @@ def py_email(subject, message_con, to_user):
 #钉钉报警
 import requests,json
 # 这里改为自己创建的机器人的webhook地址
-webhook="https://oapi.dingtalk.com/robot/send?access_token=364e8a54b3a0f8f65cb44daa0af76e3b57cc0687e1d1a67497da6f8d5f36660a"
+webhook="https://oapi.dingtalk.com/robot/send?access_token='my_token'"
 # 接受脚本运行时传的参数 第一个为手机号 第二个参数随意 第三个为内容， 直接写在函数里面算了
 # user=sys.argv[1]
 # text=sys.argv[3]
