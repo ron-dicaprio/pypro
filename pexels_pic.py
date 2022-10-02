@@ -1,3 +1,6 @@
+# main website https://www.pexels.com
+# how to download pictures in pexels
+
 import requests
 
 weburl ='https://www.pexels.com/zh-cn/api/v2/feed?seed=2022-10-02T14:39:12.839Z&per_page=30'
