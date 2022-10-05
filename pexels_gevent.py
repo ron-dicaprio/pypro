@@ -52,7 +52,7 @@ for weburl in re_file:
 
 gevent.joinall(task_list)
 
-'''
+
 # 利用阿里云盘cli客户端上传
 import os
 filepath = os.getcwd()
@@ -61,7 +61,8 @@ for file in os.listdir(filepath):
     if '.jpeg' in file:
         try:
             # system级别调用cmd
+            os.system('/home/ubuntu/aliyunpan-v0.2.2-linux-amd64/aliyunpan login XXXXXXXXX')
             os.system('/home/ubuntu/aliyunpan-v0.2.2-linux-amd64/aliyunpan upload %s /Public_share' % (file))
         except Exception as e:
             print(e)
-'''
+
