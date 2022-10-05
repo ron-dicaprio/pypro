@@ -2,7 +2,7 @@
 # patch
 from gevent import monkey
 monkey.patch_all()
-import requests, re,gevent, multiprocessing
+import requests, re,gevent, multiprocessing,os
 
 # get filename from url address.
 def get_image_name(url):
@@ -35,6 +35,7 @@ def download_pic(fileurl):
         with open(get_image_name(download_link),'ab+') as files:
             res = requests.get(download_link,headers=chrome_header)
             files.write(res.content)
+
 task_list=[]
 def get_task_list():
     for weburl in re_file:
@@ -47,10 +48,35 @@ def process_start(task_list:list):
     gevent.joinall(get_task_list())
 
 def main():
-    proc = multiprocessing.Process(target=process_start,args=(task_list,))
-    proc.start()
-    proc.join()
+    proc_count = 0
+    # 判断协程数是否大于十万
+    if len(get_task_list()) > 100000:
+        # start multiprocessing
+        proc = multiprocessing.Process(target=process_start,args=(task_list,))
+        proc.start()
+        proc.join()
+        # 打印进程id
+        print(os.getppid())
+        proc_count+=1
+        # 删掉已执行完的协程
+        del task_list[0:100000]
+        # 判断下是否会超过CPU核数,超过就直接用一个进程执行完
+        if proc_count > os.cpu_count()-1:
+            proc = multiprocessing.Process(target=process_start,args=(task_list,))
+            proc.start()
+            proc.join()
+            # 打印进程id
+            # print(os.getppid())
+        else:
+            pass
+    else:
+        proc = multiprocessing.Process(target=process_start,args=(task_list,))
+        proc.start()
+        proc.join()
+        # 打印进程id
+        # print(os.getppid())
+        proc_count+=1
 
-# 记录一下进程数量
+# 开关
 if __name__ == '__main__':
     main()
