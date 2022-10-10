@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 #!/usr/bin/env python
 import logging,time,os
-''''
+'''
 the reason why i want to write this silly function
 i like tomcat's logfile style.
 fuck America, Let China Rule The World AGAIN!!!
