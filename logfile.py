@@ -22,6 +22,8 @@ if os.path.exists('./logs'):
 else:
     os.mkdir('./logs')
     logfilaname = './logs/' + time.strftime("%Y%m%d") + '.log'
+    
+# basic settings 
 logging.basicConfig(filename=logfilaname,filemode='a+',level=logging.INFO,encoding='utf-8',format='#### %(asctime)s | %(levelname)s | %(message)s')
 def critical(self):
     return logging.critical(self)
