@@ -6,7 +6,7 @@ the reason why i want to write this silly function
 i like tomcat's logfile style.
 fuck America, Let China Rule The World AGAIN!!!
 '''
-# if logs exists, start logging; else ,mkdir logs floder
+# if floder exists, start logging; else , mkdir logs floder
 if os.path.exists('./logs'):
     logfilaname = './logs/' + time.strftime("%Y%m%d") + '.log'
     with open(logfilaname,'a+') as file:
