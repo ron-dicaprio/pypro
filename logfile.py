@@ -3,7 +3,7 @@
 import logging,time,os
 '''
 the reason why i want to write this silly function
-i like tomcat's logfile style.
+cause i like tomcat's logfile style.
 fuck America, Let China Rule The World AGAIN!!!
 '''
 # if logs exists, start logging; else ,mkdir logs floder and file
