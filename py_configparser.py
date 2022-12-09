@@ -20,3 +20,16 @@ def pyrunsql(self):
         return cur.fetchall()
     except Exception as ERROR:
         return ERROR
+
+    
+#dbconfig
+[dockerhost]
+host=172.31.65.168
+port=3306
+dbuser=root
+dbpasswd=@Caitao628422
+db=epointoneapm
+
+
+[db_name]
+name='zhangsan'
