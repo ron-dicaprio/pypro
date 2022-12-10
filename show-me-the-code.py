@@ -10,7 +10,7 @@ def get_active_code(Lenth,Nums):
         # 定义长度
         active_code = ''.join(random.sample(code_pool,Lenth))
         if active_code in active_code_list:
-            # 如果有重复的会导致生成出来active_code_list的数量少一位. 
+            # 如果有重复的会导致生成出来active_code_list的数量少一位. 后期优化(while True)
             # todo list
             pass
         else:
