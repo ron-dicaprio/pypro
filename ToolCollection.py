@@ -54,8 +54,16 @@ def daily_words():
     except Exception as e:
         return e
 
-
 # File IO Part
+for line in open('info.txt','r'):
+    #print(line,end='')
+    ss=line.rstrip('\n')
+    print(ss)
+
+list='12wsdjkolsdfsdklfjksldfjljsdlfk'
+for i in range(1,100):
+    list = list[1:]+list[0]
+    print('\r',list,end='')
 
 # pymysql engine to run sql command.
 import configparser,pymysql
@@ -77,11 +85,6 @@ def exec_pymysql(str_sql):
         return cur.fetchall()
     except Exception as ERRORS:
         return ERRORS
-
-
-
-
-
 
 # Random
 import random,string
@@ -119,7 +122,6 @@ def py_combfloderAV(self):
         # 当文件较大时, 内存可能溢出, 待优化
         finalclip = concatenate_videoclips([clip[h] for h in range(0, len(video_list))])
         finalclip.write_videofile(self + "combine_%s.mp4" % (time.strftime('%Y%m%d%H%M%S')))
-
 
 import gevent
 # secret-key should in headers
