@@ -14,4 +14,6 @@ docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
   jenkins/jenkins:lts
 ```
-![我的啊实打实的](https://www.jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg) 
+
+## 登录jenkins, 通过dockers logs docker-jenkins查看密码
+![Jenkins登录](https://www.jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg) 
