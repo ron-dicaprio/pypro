@@ -13,3 +13,5 @@ docker run \
   -v /usr/bin/docker:/usr/bin/docker \
   -v /var/run/docker.sock:/var/run/docker.sock \
   jenkins/jenkins:lts
+```
+![我的啊实打实的](https://www.jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg) 
