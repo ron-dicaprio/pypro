@@ -16,4 +16,7 @@ docker run \
 ```
 
 ## 登录jenkins, 通过dockers logs docker-jenkins查看密码
+```sh
+# docker logs docker-jenkins
+```
 ![Jenkins登录](https://www.jenkins.io/doc/book/resources/tutorials/setup-jenkins-01-unlock-jenkins-page.jpg) 
